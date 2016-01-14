@@ -77,6 +77,8 @@ class FOSRestExtension extends Extension
 
     private function loadForm(array $config, XmlFileLoader $loader, ContainerBuilder $container)
     {
+        $loader->load('form.xml');
+
         if (!empty($config['disable_csrf_role'])) {
             $loader->load('forms.xml');
             $container->getDefinition('fos_rest.form.extension.csrf_disable')->replaceArgument(1, $config['disable_csrf_role']);
